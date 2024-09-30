@@ -34,9 +34,9 @@ rl.question(
   "작은 수를 제거할 값들을 입력해주세요. ex) 4,3,2,1 : ",
   (numbers) => {
     // 입력 받은 값을 Number타입의 값이 담긴 배열로
-    const arr = numbers.split(",").map((num) => Number(num));
+    const arr = numbers.split(",").map((num) => Number(num.trim()));
     const result = removeMinNumber(arr);
-    console.log(result);
+    console.log("결과 : ", result);
     rl.close();
   }
 );
