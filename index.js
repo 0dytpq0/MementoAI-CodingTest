@@ -9,11 +9,13 @@ const removeMinNumber = (arr) => {
   const removedArr = [...arr];
 
   // 1번 풀이 : 배열을 3번 순회하므로 시간 복잡도 = O(n) { O(n) * 3 ) }
-  // removedArr.splice(arr.indexOf(Math.min(...arr)), 1);
+  removedArr.splice(arr.indexOf(Math.min(...arr)), 1);
 
   // 2번 풀이 : 배열 순회를 줄인 풀이로 시간 복잡도 = O(n log n) { O(n log n) + O(1) }
-  removedArr.sort((a, b) => b - a);
-  removedArr.pop();
+  // 배열이 입력된 상태에서 틀정값만 삭제 된 상태로 리턴되어야 한다면 이 풀이는 맞지 않은 듯 싶다.
+  // ex) input : [3,1,2,4] return [3,2,4] 여야 할 때 sort를 진행하면 return값이 달라지기에 틀린 풀이가 될 수 있을 듯 하다.
+  // removedArr.sort((a, b) => b - a);
+  // removedArr.pop();
 
   const result = checkArrLength(removedArr);
 
